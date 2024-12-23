@@ -14,9 +14,9 @@ public class Ca2December {
         // Task 1: Array Search – Find the First Repeated Element
         //task1();
         // Task 2: Multiplication Table Using 2D Array
-        task2();
-        
-        
+        //task2();
+        //Task 3: Diagonal Sum of a Matrix
+        task3();
     }
 
     // Task 1: Array Search – Find the First Repeated Element
@@ -81,5 +81,39 @@ public class Ca2December {
             // Next line after each row
             System.out.println();
         }
+    }
+
+    // Task 3: Diagonal Sum of a Matrix
+    public static void task3() {
+        // Create a Scanner object to take input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // User enter the size of the matrix
+        System.out.print("Enter size of matrix: ");
+        int n = scanner.nextInt();
+
+        // Create a 2D array 
+        int[][] matrix = new int[n][n];
+
+        // User enter the elements of the matrix row by row
+        System.out.println("Enter elements row by row:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+
+        // Calculate the sum of the main diagonal and secondary diagonal
+        int mainDiagonalSum = 0;
+        int secondaryDiagonalSum = 0;
+
+        for (int i = 0; i < n; i++) {
+            mainDiagonalSum += matrix[i][i]; 
+            secondaryDiagonalSum += matrix[i][n - 1 - i]; 
+        }
+
+        // Display the sums of both diagonals
+        System.out.println("Sum of the main diagonal: " + mainDiagonalSum);
+        System.out.println("Sum of the secondary diagonal: " + secondaryDiagonalSum);
     }
 }
