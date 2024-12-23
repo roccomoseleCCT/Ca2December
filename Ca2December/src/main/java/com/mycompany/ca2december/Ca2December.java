@@ -12,8 +12,11 @@ public class Ca2December {
 
     public static void main(String[] args) {
         // Task 1: Array Search – Find the First Repeated Element
-        task1();
-
+        //task1();
+        // Task 2: Multiplication Table Using 2D Array
+        task2();
+        
+        
     }
 
     // Task 1: Array Search – Find the First Repeated Element
@@ -47,5 +50,36 @@ public class Ca2December {
 
         // If no repeated elements 
         System.out.println("No repeated elements found.");
+    }
+
+    // Task 2: Multiplication Table Using 2D Array
+    public static void task2() {
+        // Create a Scanner object to take input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // User enter the size of the multiplication table
+        System.out.print("Enter size of multiplication table: ");
+        int n = scanner.nextInt();
+
+        // Create a 2D array 
+        int[][] table = new int[n][n];
+
+        // Populate the 2D array 
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                table[i][j] = (i + 1) * (j + 1);
+            }
+        }
+
+        // Display the multiplication table in matrix form
+        System.out.println("Multiplication Table:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                // Print each element followed by a space 
+                System.out.print(table[i][j] + "\t");
+            }
+            // Next line after each row
+            System.out.println();
+        }
     }
 }
