@@ -16,7 +16,9 @@ public class Ca2December {
         // Task 2: Multiplication Table Using 2D Array
         //task2();
         //Task 3: Diagonal Sum of a Matrix
-        task3();
+        //task3();
+        //Task 4: Spiral Traversal of a Matrix
+        task4();
     }
 
     // Task 1: Array Search – Find the First Repeated Element
@@ -108,12 +110,83 @@ public class Ca2December {
         int secondaryDiagonalSum = 0;
 
         for (int i = 0; i < n; i++) {
-            mainDiagonalSum += matrix[i][i]; 
-            secondaryDiagonalSum += matrix[i][n - 1 - i]; 
+            mainDiagonalSum += matrix[i][i];
+            secondaryDiagonalSum += matrix[i][n - 1 - i];
         }
 
         // Display the sums of both diagonals
         System.out.println("Sum of the main diagonal: " + mainDiagonalSum);
         System.out.println("Sum of the secondary diagonal: " + secondaryDiagonalSum);
+    }
+
+    // Task 4: Spiral Traversal of a Matrix
+    public static void task4() {
+        // Create a Scanner object to take input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // User enter the dimensions of the matrix (rows and columns)
+        System.out.print("Enter rows and columns of matrix: ");
+        int rows = scanner.nextInt();
+        int cols = scanner.nextInt();
+
+        // Create a 2D array
+        int[][] matrix = new int[rows][cols];
+
+        // User enter the elements of the matrix row by row
+        System.out.println("Enter elements of the matrix:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+
+        // Call the function to print the spiral order
+        printSpiral(matrix, rows, cols);
+    }
+
+    // Function to print the matrix in spiral order, receive the matrix and the size
+    public static void printSpiral(int[][] matrix, int rows, int cols) {
+        // Define the boundaries of the matrix
+        int top = 0;
+        int left = 0;
+        int bottom = rows - 1;
+        int right = cols - 1;
+
+        System.out.print("Spiral Traversal: ");
+
+        // Traverse the matrix in spiral order, so from top to bottom and from left to right
+        while (top <= bottom && left <= right) {
+            // Traverse from left to right along the top row
+            for (int i = left; i <= right; i++) {
+                System.out.print(matrix[top][i] + " ");
+            }
+            // Move down to the next row
+            top++; 
+
+            // Traverse from top to bottom along the right column
+            for (int i = top; i <= bottom; i++) {
+                System.out.print(matrix[i][right] + " ");
+            }
+            // Move left to the next column
+            right--; 
+
+            // Traverse from right to left along the bottom row 
+            if (top <= bottom) {
+                for (int i = right; i >= left; i--) {
+                    System.out.print(matrix[bottom][i] + " ");
+                }
+                // Move up to the previous row
+                bottom--; 
+            }
+
+            // Traverse from bottom to top along the left column 
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--) {
+                    System.out.print(matrix[i][left] + " ");
+                }
+                // Move right to the next column
+                left++; 
+            }
+        } 
     }
 }
