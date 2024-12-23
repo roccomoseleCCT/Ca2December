@@ -7,18 +7,19 @@ import java.util.Scanner;
 
 /**
  * @author roccomoseleCCT
+ * link to my github repo : https://github.com/roccomoseleCCT/Ca2December
  */
 public class Ca2December {
 
     public static void main(String[] args) {
         // Task 1: Array Search – Find the First Repeated Element
-        //task1();
+        task1();
         // Task 2: Multiplication Table Using 2D Array
-        //task2();
+        task2();
         //Task 3: Diagonal Sum of a Matrix
-        //task3();
+        task3();
         //Task 4: Spiral Traversal of a Matrix
-        //task4();
+        task4();
         //Task 5: Bubble Sort - Sorting an Array
         task5();
     }
